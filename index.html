@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>קבוצת ריצה הוד השרון | רצי הוד השרון — איריס בן עמי Since 2008</title>
+  <meta name="description" content="קבוצת ריצה מקצועית בהוד השרון מאז 2008. מאמנת מוסמכת איריס בן עמי, 30 שנות ניסיון. אימונים לכל הרמות — מתחילים ועד מרתון. הצטרף/י לאימון ניסיון חינם!">
+  <meta name="keywords" content="קבוצת ריצה הוד השרון, ריצה השרון, מאמן ריצה הוד השרון, אימון ריצה השרון, קבוצת ריצה מרכז, רצי הוד השרון, איריס בן עמי, ריצה למתחילים, קבוצת מרתון השרון, אימון פונקציונלי הוד השרון">
+  <link rel="canonical" href="https://ratzey-hod-hasharon.co.il/">
+  <meta property="og:title" content="רצי הוד השרון — קבוצת ריצה Since 2008">
+  <meta property="og:description" content="הצטרף/י לקבוצת הריצה המובילה בהוד השרון. אימון ניסיון חינם!">
+  <meta property="og:image" content="[PHOTO_IRIS_HERO]">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["SportsClub", "LocalBusiness"],
+    "name": "רצי הוד השרון",
+    "description": "קבוצת ריצה מקצועית בהוד השרון מאז 2008",
+    "foundingDate": "2008",
+    "coach": {
+      "@type": "Person",
+      "name": "איריס בן עמי",
+      "jobTitle": "מאמנת ריצה מוסמכת",
+      "alumniOf": "מכון וינגייט"
+    },
+    "areaServed": ["הוד השרון", "השרון", "מרכז"],
+    "telephone": "+972522654289",
+    "email": "hodhasharonrun@gmail.com",
+    "sport": "Running",
+    "priceRange": "₪",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "הוד השרון",
+      "addressRegion": "מרכז",
+      "addressCountry": "IL"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.3"></script>
+
+  <style>
+    /* ─── CSS VARIABLES ─────────────────────────────────────── */
+    :root {
+      --blue:        #1A237E;
+      --blue-mid:    #283593;
+      --blue-light:  #3949AB;
+      --orange:      #FF5722;
+      --orange-dark: #E64A19;
+      --green-wa:    #25D366;
+      --green-dark:  #1EBE57;
+      --white:       #FFFFFF;
+      --off-white:   #F5F7FF;
+      --text-dark:   #0D1333;
+      --text-mid:    #3D4466;
+      --border:      #E2E6F3;
+    }
+
+    /* ─── CRITICAL ABOVE-FOLD CSS ───────────────────────────── */
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Heebo', sans-serif;
+      font-size: 16px;
+      color: var(--text-dark);
+      overflow-x: hidden;
+      background: #fff;
+    }
+
+    /* Hero critical styles */
+    .hero {
+      background: linear-gradient(160deg, #0D1B6E 0%, #1A237E 45%, #1E3A8A 100%);
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem 5rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23ffffff'/%3E%3C/svg%3E");
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    /* ─── FONTS ─────────────────────────────────────────────── */
+    .font-caveat { font-family: 'Caveat', cursive !important; }
+
+    /* ─── ANIMATIONS ────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%,100% { transform: rotate(-3deg) translateY(0); }
+      50%     { transform: rotate(-3deg) translateY(-6px); }
+    }
+    @keyframes bounceArrow {
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(8px); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to   { transform: translateY(0);   opacity: 1; }
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+      50%     { box-shadow: 0 0 0 10px rgba(37,211,102,0); }
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .animate-fade-up-1  { animation: fadeUp 0.6s ease forwards 0.1s; opacity: 0; }
+    .animate-fade-up-2  { animation: fadeUp 0.6s ease forwards 0.2s; opacity: 0; }
+    .animate-fade-up-3  { animation: fadeUp 0.6s ease forwards 0.3s; opacity: 0; }
+    .animate-fade-up-4  { animation: fadeUp 0.6s ease forwards 0.4s; opacity: 0; }
+    .animate-fade-up-5  { animation: fadeUp 0.6s ease forwards 0.5s; opacity: 0; }
+    .animate-fade-up-6  { animation: fadeUp 0.6s ease forwards 0.6s; opacity: 0; }
+    .animate-fade-up-7  { animation: fadeUp 0.6s ease forwards 0.7s; opacity: 0; }
+    .animate-float      { animation: float 3s ease-in-out infinite; display: inline-block; }
+    .animate-bounce-arrow { animation: bounceArrow 1.5s ease-in-out infinite; }
+    .animate-pulse-wa   { animation: pulse 4s ease-in-out infinite; }
+
+    /* Scroll fade-up */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── STICKY BAR ────────────────────────────────────────── */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      z-index: 999;
+      background: #fff;
+      padding: 10px 12px 14px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+      transform: translateY(100%);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease;
+    }
+    .sticky-bar.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .sticky-bar-btns {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .sticky-bar-btns button {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 8px;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s, filter 0.15s;
+    }
+    .sticky-bar-btns button:active { transform: scale(0.96); }
+    .btn-wa-sticky {
+      background: var(--green-wa);
+      color: #fff;
+    }
+    .btn-wa-sticky { animation: pulse 4s ease-in-out infinite; }
+    .btn-cta-sticky {
+      background: var(--orange);
+      color: #fff;
+    }
+    .sticky-microcopy {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-mid);
+      font-weight: 500;
+    }
+
+    /* ─── BUTTONS ───────────────────────────────────────────── */
+    .btn-orange {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      padding: 18px 32px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255,87,34,0.4);
+      transition: transform 0.15s, background 0.15s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      text-decoration: none;
+    }
+    .btn-orange:hover { background: var(--orange-dark); }
+    .btn-orange:active { transform: scale(0.97); background: var(--orange-dark); }
+
+    .btn-wa {
+      background: var(--green-wa);
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      padding: 16px 32px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+      transition: transform 0.15s, background 0.15s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      text-decoration: none;
+    }
+    .btn-wa:hover { background: var(--green-dark); }
+    .btn-wa:active { transform: scale(0.97); }
+
+    /* ─── HERO ──────────────────────────────────────────────── */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50px;
+      padding: 7px 16px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      color: #fff;
+      font-size: clamp(38px, 9vw, 64px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .since-badge {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--orange);
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .hero h2 {
+      color: rgba(255,255,255,0.92);
+      font-size: clamp(18px, 4.5vw, 24px);
+      font-weight: 600;
+      line-height: 1.45;
+      margin-bottom: 0.75rem;
+      max-width: 500px;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,0.72);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 440px;
+    }
+    .hero-microcopy {
+      color: rgba(255,255,255,0.65);
+      font-size: 13px;
+      margin-top: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .bounce-arrow {
+      color: rgba(255,255,255,0.5);
+      font-size: 28px;
+      margin-top: 0.5rem;
+    }
+
+    /* ─── TRUST STRIP ───────────────────────────────────────── */
+    .trust-strip {
+      background: var(--off-white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .trust-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      white-space: nowrap;
+      min-width: max-content;
+      padding: 0 1rem;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-mid);
+      padding: 0 16px;
+    }
+    .trust-sep {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    /* ─── SECTION LAYOUT ────────────────────────────────────── */
+    section {
+      padding: 3rem 1.25rem;
+    }
+    .section-white { background: #fff; }
+    .section-off   { background: var(--off-white); }
+    .section-blue  { background: linear-gradient(135deg, var(--blue), var(--blue-mid)); }
+    .section-orange { background: linear-gradient(135deg, var(--orange), var(--orange-dark)); }
+
+    .section-title {
+      font-size: clamp(26px, 6vw, 36px);
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--text-mid);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* ─── ABOUT ─────────────────────────────────────────────── */
+    .iris-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--orange);
+      object-fit: cover;
+      margin: 0 auto 1rem;
+      display: block;
+      background: var(--off-white);
+    }
+    .iris-photo-placeholder {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--orange);
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--off-white), #e8edf8);
+      color: var(--text-mid);
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .stat-pill {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 1.25rem 0;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .about-quote {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--blue);
+      line-height: 1.55;
+      border-right: 4px solid var(--orange);
+      padding-right: 16px;
+      margin: 1.5rem 0;
+      text-align: right;
+    }
+    .logos-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 1.5rem;
+    }
+    .logo-placeholder {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 12px;
+      color: var(--text-mid);
+      font-weight: 500;
+    }
+
+    /* ─── USP CARDS ─────────────────────────────────────────── */
+    .usp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .usp-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 20px 16px;
+    }
+    .usp-icon { font-size: 28px; margin-bottom: 10px; }
+    .usp-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .usp-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.55;
+    }
+
+    /* ─── GROUP LEVELS ──────────────────────────────────────── */
+    .level-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .level-card {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 24px 20px;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .level-card-green { border-right: 5px solid #22c55e; }
+    .level-card-blue  { border-right: 5px solid var(--blue-light); }
+    .level-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .tag-green { background: #dcfce7; color: #166534; }
+    .tag-blue  { background: #dbeafe; color: #1e3a8a; }
+    .level-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+    .level-desc {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+    .level-quote {
+      font-size: 14px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--text-mid);
+    }
+
+    /* ─── SCHEDULE ──────────────────────────────────────────── */
+    .schedule-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 40px 65px 1fr auto;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .sched-day {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--blue);
+      text-align: center;
+    }
+    .sched-time {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--orange);
+      font-variant-numeric: tabular-nums;
+    }
+    .sched-type {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .sched-loc {
+      font-size: 12px;
+      color: var(--text-mid);
+      margin-top: 2px;
+    }
+    .sched-studio-badge {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+      border-radius: 6px;
+      padding: 3px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .scarcity-note {
+      margin-top: 1.25rem;
+      background: #fff8e1;
+      border: 1px solid #ffd54f;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 14px;
+      color: #7c4a00;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    /* ─── TESTIMONIALS ──────────────────────────────────────── */
+    .testimonials-scroll {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+      scroll-snap-type: x mandatory;
+    }
+    .testimonials-scroll::-webkit-scrollbar { display: none; }
+    .testimonial-card {
+      flex: 0 0 280px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px 18px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      scroll-snap-align: start;
+    }
+    .test-photo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .test-photo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--off-white);
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--text-mid);
+      font-weight: 500;
+    }
+    .test-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--blue);
+    }
+    .test-goal {
+      font-size: 12px;
+      color: var(--text-mid);
+    }
+    .test-stars { color: #fbbf24; font-size: 14px; margin-bottom: 10px; }
+    .test-quote {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    /* ─── MID CTA ───────────────────────────────────────────── */
+    .mid-cta-text {
+      color: #fff;
+      font-size: clamp(22px, 5vw, 30px);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+    .btn-wa-white {
+      background: #fff;
+      color: var(--green-wa);
+      border: none;
+      border-radius: 16px;
+      padding: 16px 32px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      transition: transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      text-decoration: none;
+    }
+    .btn-wa-white:active { transform: scale(0.97); }
+
+    /* ─── FORM ──────────────────────────────────────────────── */
+    .form-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      padding: 28px 20px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Progress bar */
+    .progress-bar-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 1.75rem;
+    }
+    .prog-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .prog-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-mid);
+      transition: all 0.3s;
+    }
+    .prog-dot.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .prog-dot.done {
+      background: #22c55e;
+      border-color: #22c55e;
+      color: #fff;
+    }
+    .prog-label {
+      font-size: 11px;
+      color: var(--text-mid);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .prog-line {
+      flex: 1;
+      height: 2px;
+      background: var(--border);
+      min-width: 30px;
+      max-width: 60px;
+      margin-bottom: 16px;
+      transition: background 0.3s;
+    }
+    .prog-line.done { background: #22c55e; }
+
+    /* Form fields */
+    .field-wrap {
+      margin-bottom: 16px;
+    }
+    .field-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+    .field-input {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 16px;
+      color: var(--text-dark);
+      background: var(--off-white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .field-input:focus {
+      border-color: var(--blue-light);
+      box-shadow: 0 0 0 3px rgba(57,73,171,0.1);
+      background: #fff;
+    }
+    .field-input.error {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239,68,68,0.1);
+    }
+    .field-error {
+      font-size: 12px;
+      color: #ef4444;
+      margin-top: 4px;
+      display: none;
+    }
+    .field-error.show { display: block; }
+    .field-microcopy {
+      font-size: 12px;
+      color: var(--text-mid);
+      margin-top: 4px;
+    }
+
+    /* Pill selectors */
+    .pill-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill-btn {
+      border: 1.5px solid var(--border);
+      background: #fff;
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .pill-btn.selected {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .pill-btn:focus { outline: 2px solid var(--blue-light); outline-offset: 2px; }
+
+    /* Toggle */
+    .toggle-group {
+      display: flex;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .toggle-btn {
+      flex: 1;
+      border: none;
+      background: #fff;
+      padding: 10px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .toggle-btn.selected {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    /* Select */
+    .field-select {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 16px;
+      color: var(--text-dark);
+      background: var(--off-white);
+      cursor: pointer;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233D4466' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: left 14px center;
+    }
+    .field-select:focus {
+      border-color: var(--blue-light);
+      box-shadow: 0 0 0 3px rgba(57,73,171,0.1);
+      background-color: #fff;
+    }
+
+    /* Textarea */
+    .field-textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* Submit */
+    .btn-submit {
+      background: var(--green-wa);
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      padding: 18px 32px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      transition: transform 0.15s, background 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--green-dark); }
+    .btn-submit:active { transform: scale(0.97); }
+    .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    .trust-line {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-mid);
+      margin-top: 12px;
+    }
+    .direct-wa-wrap {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding: 14px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+    }
+    .direct-wa-text {
+      font-size: 13px;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+    .btn-wa-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-wa);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 9px 18px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-wa-sm:hover { background: var(--green-dark); }
+
+    /* ─── CONTACT ───────────────────────────────────────────── */
+    .contact-section {
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+    }
+    .contact-logo {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .btn-outline-white {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 2px solid rgba(255,255,255,0.5);
+      background: transparent;
+      color: #fff;
+      border-radius: 14px;
+      padding: 13px 24px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.08); }
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 1.75rem;
+    }
+
+    /* ─── UTILITIES ─────────────────────────────────────────── */
+    .text-center { text-align: center; }
+    .max-container { max-width: 640px; margin: 0 auto; }
+    .wa-icon-svg { flex-shrink: 0; }
+
+    @media (min-width: 640px) {
+      .level-cards { grid-template-columns: 1fr 1fr; }
+      .usp-grid { gap: 16px; }
+    }
+    @media (min-width: 768px) {
+      section { padding: 4rem 2rem; }
+      .testimonials-scroll {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        overflow: visible;
+      }
+      .testimonial-card { flex: unset; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     STICKY WHATSAPP BAR
+═══════════════════════════════════════════════════════════ -->
+<div class="sticky-bar" id="stickyBar" role="region" aria-label="יצירת קשר מהירה">
+  <div class="sticky-bar-btns">
+    <button class="btn-wa-sticky" onclick="openDirectWhatsApp()" aria-label="פתח שיחת וואטסאפ עם איריס">
+      <svg class="wa-icon-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      דברו עם איריס
+    </button>
+    <button class="btn-cta-sticky" onclick="scrollToForm()" aria-label="גלול לטופס אימון ניסיון חינם">
+      אימון ניסיון חינם
+    </button>
+  </div>
+  <p class="sticky-microcopy">✓ ללא התחייבות &nbsp;✓ תגובה תוך שעות &nbsp;✓ חינם</p>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 1 — HERO
+═══════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero" aria-label="דף הבית">
+
+  <div class="max-container" style="width:100%;position:relative;z-index:1;">
+
+    <div class="hero-badge animate-fade-up-1">
+      🔥 מקומות מוגבלים לאימון ניסיון חינם
+    </div>
+
+    <h1 class="animate-fade-up-2">
+      רצי הוד השרון
+    </h1>
+
+    <div class="animate-fade-up-3">
+      <span class="since-badge animate-float">Since 2008 ✦</span>
+    </div>
+
+    <h2 class="animate-fade-up-4">
+      לממש את הפוטנציאל שלך<br>בלי לוותר על מה שחשוב באמת
+    </h2>
+
+    <p class="hero-sub animate-fade-up-5">
+      איריס בן עמי, מאמנת ריצה מוסמכת בוגרת מכון וינגייט עם 18+ שנות ניסיון.
+      קבוצת ריצה מקצועית בחסות עיריית הוד השרון — לכל הרמות.
+    </p>
+
+    <div class="animate-fade-up-6">
+      <button class="btn-orange" onclick="scrollToForm()" aria-label="לחץ לאימון ניסיון חינם">
+        אני רוצה אימון ניסיון חינם ↓
+      </button>
+      <p class="hero-microcopy">✓ ללא התחייבות &nbsp; ✓ חינם לגמרי</p>
+    </div>
+
+    <div class="bounce-arrow animate-bounce-arrow animate-fade-up-7" aria-hidden="true">↓</div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 2 — TRUST STRIP
+═══════════════════════════════════════════════════════════ -->
+<div class="trust-strip" role="complementary" aria-label="אמינות ואישורים">
+  <div class="trust-strip-inner">
+    <div class="trust-item">🏅 Since 2008</div>
+    <div class="trust-sep" aria-hidden="true"></div>
+    <div class="trust-item">🏛️ בחסות עיריית הוד השרון</div>
+    <div class="trust-sep" aria-hidden="true"></div>
+    <div class="trust-item">🎓 בוגרת וינגייט</div>
+    <div class="trust-sep" aria-hidden="true"></div>
+    <div class="trust-item">👟 [MEMBERS_COUNT] רצים פעילים</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 3 — ABOUT IRIS
+═══════════════════════════════════════════════════════════ -->
+<section class="section-white text-center" id="about" aria-label="על המאמנת איריס בן עמי">
+  <div class="max-container fade-up">
+
+    <div class="iris-photo-placeholder" role="img" aria-label="תמונת פרופיל של איריס בן עמי">
+      [PHOTO_IRIS_PROFILE]
+    </div>
+
+    <h2 class="section-title">איריס בן עמי</h2>
+    <p style="font-size:14px;color:var(--text-mid);margin-bottom:0.25rem;">מאמנת ריצה מוסמכת</p>
+
+    <span class="since-badge" style="font-size:22px;margin-bottom:1rem;display:inline-block;">Since 2008</span>
+
+    <div class="stats-grid">
+      <div class="stat-pill">🏃 18 שנות ריצה</div>
+      <div class="stat-pill">⭐ 30 שנות ניסיון</div>
+      <div class="stat-pill">🎓 בוגרת וינגייט</div>
+      <div class="stat-pill">🏛️ בחסות עירייה</div>
+    </div>
+
+    <blockquote class="about-quote">
+      "איריס רצה עם הקבוצה — לא מהצד.<br>
+      אימון מקצועי שמתאים לחיים שלך, לא להיפך."
+    </blockquote>
+
+    <p style="font-size:16px;color:var(--text-mid);line-height:1.7;text-align:right;">
+      עם ניסיון של 30 שנה ואהבה אמיתית לריצה, איריס יוצרת אווירה שמשלבת מקצועיות עם חמימות.
+      התוכנית שבועית, מדויקת ומותאמת אישית — לכל רמה ולכל לוח זמנים.
+      ריצה לא צריכה להתחרות בחיים שלך — היא אמורה לשדרג אותם.
+    </p>
+
+    <div class="logos-row" aria-label="לוגואים של שותפים">
+      <div class="logo-placeholder" role="img" aria-label="לוגו עיריית הוד השרון">[LOGO_CITY]</div>
+      <div class="logo-placeholder" role="img" aria-label="לוגו מכון וינגייט">[LOGO_WINGATE]</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 4 — USP (4 ADVANTAGES)
+═══════════════════════════════════════════════════════════ -->
+<section class="section-blue" id="advantages" aria-label="היתרונות שלנו">
+  <div class="max-container">
+
+    <div class="fade-up text-center" style="margin-bottom:1.75rem;">
+      <h2 class="section-title" style="color:#fff;">למה לבחור ברצי הוד השרון?</h2>
+      <p style="color:rgba(255,255,255,0.72);font-size:16px;">4 סיבות שהרצים שלנו נשארים שנים</p>
+    </div>
+
+    <div class="usp-grid fade-up">
+
+      <div class="usp-card">
+        <div class="usp-icon">⏱️</div>
+        <p class="usp-title">יעילות זמן</p>
+        <p class="usp-desc">שעות בוקר מוקדם וערב — האימון משתלב בחיים שלך, לא מתחרה בהם.</p>
+      </div>
+
+      <div class="usp-card">
+        <div class="usp-icon">📋</div>
+        <p class="usp-title">תוכנית שבועית</p>
+        <p class="usp-desc">מדי שבוע תוכנית מפורטת — אפשר לאמן גם עצמאית, בכל מקום.</p>
+      </div>
+
+      <div class="usp-card">
+        <div class="usp-icon">⌚</div>
+        <p class="usp-title">גרמין — אימוני איכות</p>
+        <p class="usp-desc">אימוני האיכות נשלחים ישירות לשעון הגרמין שלך.</p>
+      </div>
+
+      <div class="usp-card">
+        <div class="usp-icon">🔗</div>
+        <p class="usp-title">גרמין קונקט</p>
+        <p class="usp-desc">כל הקבוצה מחוברת — פידבק אישי מאיריס אחרי כל אימון.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 5 — GROUP LEVELS
+═══════════════════════════════════════════════════════════ -->
+<section class="section-white" id="levels" aria-label="רמות הקבוצות">
+  <div class="max-container">
+
+    <div class="fade-up text-center" style="margin-bottom:1.75rem;">
+      <h2 class="section-title">קבוצה שמתאימה בדיוק לך</h2>
+      <p class="section-sub">מתחילים או ותיקים — יש לנו את המקום הנכון עבורך</p>
+    </div>
+
+    <div class="level-cards fade-up">
+
+      <div class="level-card level-card-green">
+        <span class="level-tag tag-green">🟢 מתחילים ורצי 5 ק"מ</span>
+        <h3 class="level-title">התחלה נכונה</h3>
+        <p class="level-desc">
+          שמירה על כושר ואורח חיים בריא. מתחילים מאפס ועד לריצה עצמאית ומהנה —
+          בקצב שלך, עם ליווי צמוד ותמיכה של הקבוצה.
+        </p>
+        <p class="level-quote">"המקום המושלם להתחיל" 🌱</p>
+      </div>
+
+      <div class="level-card level-card-blue">
+        <span class="level-tag tag-blue">🔵 רצי 10 ק"מ ומעלה</span>
+        <h3 class="level-title">שיפור ביצועים</h3>
+        <p class="level-desc">
+          תחרויות, מרתון, ושיאים אישיים. תוכנית מבוססת נתונים עם אימוני איכות
+          מדויקים שישדרגו את הביצועים שלך לשלב הבא.
+        </p>
+        <p class="level-quote">"להגיע לשיאים חדשים" 🏆</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 6 — WEEKLY SCHEDULE
+═══════════════════════════════════════════════════════════ -->
+<section class="section-off" id="schedule" aria-label="לוח זמנים שבועי">
+  <div class="max-container">
+
+    <div class="fade-up text-center" style="margin-bottom:1.75rem;">
+      <h2 class="section-title">מערכת שעות שבועית</h2>
+      <p class="section-sub">אימונים שמשתלבים ביומיום שלך</p>
+    </div>
+
+    <div class="schedule-grid fade-up" role="list" aria-label="לוח אימונים שבועי">
+
+      <div class="schedule-row" role="listitem">
+        <span class="sched-day">א׳</span>
+        <span class="sched-time">19:00</span>
+        <div>
+          <div class="sched-type">אימון כוח</div>
+          <div class="sched-loc">📍 אולם ספורט נווה נאמן</div>
+        </div>
+        <span></span>
+      </div>
+
+      <div class="schedule-row" role="listitem">
+        <span class="sched-day">ב׳</span>
+        <span class="sched-time">06:00</span>
+        <div>
+          <div class="sched-type">אימון איכות</div>
+          <div class="sched-loc">📍 ירקונה</div>
+        </div>
+        <span></span>
+      </div>
+
+      <div class="schedule-row" role="listitem">
+        <span class="sched-day">ג׳</span>
+        <span class="sched-time">05:50</span>
+        <div>
+          <div class="sched-type">פונקציונלי סטודיו</div>
+          <div class="sched-loc">📍 סטודיו</div>
+        </div>
+        <span class="sched-studio-badge">🏷️ רישום נפרד<br>עד 7 משתתפים</span>
+      </div>
+
+      <div class="schedule-row" role="listitem">
+        <span class="sched-day">ג׳</span>
+        <span class="sched-time">07:00</span>
+        <div>
+          <div class="sched-type">פונקציונלי סטודיו</div>
+          <div class="sched-loc">📍 סטודיו</div>
+        </div>
+        <span class="sched-studio-badge">🏷️ רישום נפרד<br>עד 7 משתתפים</span>
+      </div>
+
+      <div class="schedule-row" role="listitem">
+        <span class="sched-day">ד׳</span>
+        <span class="sched-time">06:00</span>
+        <div>
+          <div class="sched-type">אימון איכות</div>
+          <div class="sched-loc">📍 פארק 4 העונות / אגם</div>
+        </div>
+        <span></span>
+      </div>
+
+      <div class="schedule-row" role="listitem">
+        <span class="sched-day">ד׳</span>
+        <span class="sched-time">18:00</span>
+        <div>
+          <div class="sched-type">אימון כוח</div>
+          <div class="sched-loc">📍 אולם ספורט נווה נאמן</div>
+        </div>
+        <span></span>
+      </div>
+
+      <div class="schedule-row" role="listitem">
+        <span class="sched-day">ה׳</span>
+        <span class="sched-time">05:50</span>
+        <div>
+          <div class="sched-type">פונקציונלי סטודיו</div>
+          <div class="sched-loc">📍 סטודיו</div>
+        </div>
+        <span class="sched-studio-badge">🏷️ רישום נפרד<br>עד 7 משתתפים</span>
+      </div>
+
+      <div class="schedule-row" role="listitem">
+        <span class="sched-day">ה׳</span>
+        <span class="sched-time">07:00</span>
+        <div>
+          <div class="sched-type">פונקציונלי סטודיו</div>
+          <div class="sched-loc">📍 סטודיו</div>
+        </div>
+        <span class="sched-studio-badge">🏷️ רישום נפרד<br>עד 7 משתתפים</span>
+      </div>
+
+      <div class="schedule-row" role="listitem">
+        <span class="sched-day">שבת</span>
+        <span class="sched-time" style="font-size:12px;">משתנה</span>
+        <div>
+          <div class="sched-type">ריצת נפח</div>
+          <div class="sched-loc">📍 קניון מרגליות</div>
+        </div>
+        <span></span>
+      </div>
+
+    </div>
+
+    <div class="scarcity-note fade-up">
+      ⚡ <strong>אימוני הסטודיו</strong> — קבוצות אינטימיות עד 7 משתתפים.
+      <strong>[STUDIO_SPOTS] מקומות פנויים</strong> — הירשמו עכשיו לפני שיתמלא.
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 7 — TESTIMONIALS
+═══════════════════════════════════════════════════════════ -->
+<section class="section-white" id="testimonials" aria-label="המלצות רצים">
+  <div class="max-container">
+
+    <div class="fade-up text-center" style="margin-bottom:1.75rem;">
+      <h2 class="section-title">מה אומרים הרצים שלנו</h2>
+      <p class="section-sub">מאות רצים שינו את חייהם עם הקבוצה</p>
+    </div>
+
+    <div class="testimonials-scroll fade-up" role="list" aria-label="המלצות חברי הקבוצה">
+
+      <article class="testimonial-card" role="listitem">
+        <div class="test-photo-wrap">
+          <div class="test-photo" role="img" aria-label="תמונה של [TESTIMONIAL_1_NAME]">[TESTIMONIAL_1_PHOTO]</div>
+          <div>
+            <p class="test-name">[TESTIMONIAL_1_NAME]</p>
+            <p class="test-goal">[TESTIMONIAL_1_GOAL]</p>
+          </div>
+        </div>
+        <div class="test-stars" aria-label="5 כוכבים">⭐⭐⭐⭐⭐</div>
+        <p class="test-quote">"[TESTIMONIAL_1_QUOTE]"</p>
+      </article>
+
+      <article class="testimonial-card" role="listitem">
+        <div class="test-photo-wrap">
+          <div class="test-photo" role="img" aria-label="תמונה של [TESTIMONIAL_2_NAME]">[TESTIMONIAL_2_PHOTO]</div>
+          <div>
+            <p class="test-name">[TESTIMONIAL_2_NAME]</p>
+            <p class="test-goal">[TESTIMONIAL_2_GOAL]</p>
+          </div>
+        </div>
+        <div class="test-stars" aria-label="5 כוכבים">⭐⭐⭐⭐⭐</div>
+        <p class="test-quote">"[TESTIMONIAL_2_QUOTE]"</p>
+      </article>
+
+      <article class="testimonial-card" role="listitem">
+        <div class="test-photo-wrap">
+          <div class="test-photo" role="img" aria-label="תמונה של [TESTIMONIAL_3_NAME]">[TESTIMONIAL_3_PHOTO]</div>
+          <div>
+            <p class="test-name">[TESTIMONIAL_3_NAME]</p>
+            <p class="test-goal">[TESTIMONIAL_3_GOAL]</p>
+          </div>
+        </div>
+        <div class="test-stars" aria-label="5 כוכבים">⭐⭐⭐⭐⭐</div>
+        <p class="test-quote">"[TESTIMONIAL_3_QUOTE]"</p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 8 — MID-PAGE CTA
+═══════════════════════════════════════════════════════════ -->
+<section class="section-orange text-center" id="mid-cta" aria-label="קריאה לפעולה">
+  <div class="max-container fade-up">
+
+    <p class="mid-cta-text">מוכן/ה להתחיל?<br>האימון הראשון עליי 🎁</p>
+
+    <button class="btn-wa-white" onclick="openDirectWhatsApp()" aria-label="שלח הודעת וואטסאפ לאיריס">
+      <svg class="wa-icon-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      דברו איתי עכשיו בוואטסאפ
+    </button>
+
+    <p style="color:rgba(255,255,255,0.75);font-size:13px;margin-top:10px;">
+      ✓ ללא התחייבות &nbsp;✓ תגובה תוך שעות
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 9 — LEAD FORM
+═══════════════════════════════════════════════════════════ -->
+<section class="section-off" id="lead-form" aria-label="טופס אימון ניסיון">
+  <div class="max-container">
+
+    <div class="fade-up text-center" style="margin-bottom:1.5rem;">
+      <h2 class="section-title">קבל/י אימון ניסיון חינם</h2>
+      <p class="section-sub">מלא/י את הפרטים ואיריס תחזור אליך תוך שעות</p>
+    </div>
+
+    <!-- Direct WhatsApp option -->
+    <div class="direct-wa-wrap fade-up">
+      <p class="direct-wa-text">מעדיף/ה לדבר ישירות?</p>
+      <button class="btn-wa-sm" onclick="openDirectWhatsApp()" aria-label="פתח שיחה ישירה עם איריס בוואטסאפ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        כתוב/י לאיריס ישירות
+      </button>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar-wrap fade-up" aria-label="שלבי מילוי הטופס">
+      <div class="prog-step">
+        <div class="prog-dot active" id="progDot1">1</div>
+        <div class="prog-label">פרטים אישיים</div>
+      </div>
+      <div class="prog-line" id="progLine1"></div>
+      <div class="prog-step">
+        <div class="prog-dot" id="progDot2">2</div>
+        <div class="prog-label">רמה ומטרה</div>
+      </div>
+      <div class="prog-line" id="progLine2"></div>
+      <div class="prog-step">
+        <div class="prog-dot" id="progDot3">3</div>
+        <div class="prog-label">שליחה</div>
+      </div>
+    </div>
+
+    <!-- Form card -->
+    <div class="form-card fade-up">
+      <form id="trialForm" novalidate>
+
+        <!-- STEP 1: Personal -->
+        <fieldset id="step1" style="border:none;padding:0;">
+          <legend style="font-size:17px;font-weight:700;color:var(--blue);margin-bottom:1.25rem;display:block;">
+            שלב 1 — פרטים אישיים
+          </legend>
+
+          <div class="field-wrap">
+            <label class="field-label" for="fieldName">שם מלא <span style="color:#ef4444">*</span></label>
+            <input
+              class="field-input"
+              type="text"
+              id="fieldName"
+              name="name"
+              autocomplete="name"
+              placeholder="שם מלא"
+              required
+              aria-required="true"
+              aria-describedby="fieldNameError"
+            >
+            <p class="field-error" id="fieldNameError" role="alert">נא להזין שם מלא (לפחות 2 תווים)</p>
+          </div>
+
+          <div class="field-wrap">
+            <span class="field-label" id="genderLabel">מין <span style="color:#ef4444">*</span></span>
+            <div class="pill-group" role="group" aria-labelledby="genderLabel" aria-required="true">
+              <button type="button" class="pill-btn" data-field="gender" data-value="male" aria-pressed="false">זכר</button>
+              <button type="button" class="pill-btn" data-field="gender" data-value="female" aria-pressed="false">נקבה</button>
+            </div>
+            <p class="field-error" id="fieldGenderError" role="alert">נא לבחור מין</p>
+          </div>
+
+          <div class="field-wrap">
+            <label class="field-label" for="fieldAge">גיל <span style="color:#ef4444">*</span></label>
+            <input
+              class="field-input"
+              type="number"
+              id="fieldAge"
+              name="age"
+              min="10"
+              max="90"
+              placeholder="גיל"
+              required
+              aria-required="true"
+              aria-describedby="fieldAgeError"
+              style="max-width:120px;"
+            >
+            <p class="field-error" id="fieldAgeError" role="alert">נא להזין גיל בין 10 ל-90</p>
+          </div>
+
+          <div class="field-wrap">
+            <label class="field-label" for="fieldPhone">טלפון <span style="color:#ef4444">*</span></label>
+            <input
+              class="field-input"
+              type="tel"
+              id="fieldPhone"
+              name="phone"
+              autocomplete="tel"
+              placeholder="05X-XXXXXXX"
+              required
+              aria-required="true"
+              aria-describedby="fieldPhoneError fieldPhoneMicro"
+              inputmode="tel"
+            >
+            <p class="field-microcopy" id="fieldPhoneMicro">לתיאום האימון בלבד</p>
+            <p class="field-error" id="fieldPhoneError" role="alert">נא להזין מספר טלפון ישראלי תקין (05X-XXXXXXX)</p>
+          </div>
+
+          <div class="field-wrap">
+            <label class="field-label" for="fieldEmail">דוא״ל <span style="color:#ef4444">*</span></label>
+            <input
+              class="field-input"
+              type="email"
+              id="fieldEmail"
+              name="email"
+              autocomplete="email"
+              placeholder="example@email.com"
+              required
+              aria-required="true"
+              aria-describedby="fieldEmailError"
+            >
+            <p class="field-error" id="fieldEmailError" role="alert">נא להזין דוא״ל תקין</p>
+          </div>
+        </fieldset>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:1.5rem 0;">
+
+        <!-- STEP 2: Level & Goal -->
+        <fieldset id="step2" style="border:none;padding:0;">
+          <legend style="font-size:17px;font-weight:700;color:var(--blue);margin-bottom:1.25rem;display:block;">
+            שלב 2 — רמה ומטרה
+          </legend>
+
+          <div class="field-wrap">
+            <label class="field-label" for="fieldGoal">מטרת האימון <span style="color:#ef4444">*</span></label>
+            <select
+              class="field-select"
+              id="fieldGoal"
+              name="goal"
+              required
+              aria-required="true"
+              aria-describedby="fieldGoalError"
+            >
+              <option value="" disabled selected>בחר/י מטרה...</option>
+              <option value="מרתון">מרתון</option>
+              <option value="אורח חיים בריא">אורח חיים בריא</option>
+              <option value="שיפור כושר">שיפור כושר</option>
+            </select>
+            <p class="field-error" id="fieldGoalError" role="alert">נא לבחור מטרה</p>
+          </div>
+
+          <div class="field-wrap">
+            <span class="field-label" id="levelLabel">רמת הריצה <span style="color:#ef4444">*</span></span>
+            <div class="pill-group" role="group" aria-labelledby="levelLabel" aria-required="true">
+              <button type="button" class="pill-btn" data-field="level" data-value="מתחיל" aria-pressed="false">מתחיל</button>
+              <button type="button" class="pill-btn" data-field="level" data-value='5 ק"מ' aria-pressed="false">5 ק"מ</button>
+              <button type="button" class="pill-btn" data-field="level" data-value='10 ק"מ+' aria-pressed="false">10 ק"מ+</button>
+            </div>
+            <p class="field-error" id="fieldLevelError" role="alert">נא לבחור רמת ריצה</p>
+          </div>
+
+          <div class="field-wrap">
+            <span class="field-label" id="expLabel">ניסיון קודם <span style="color:#ef4444">*</span></span>
+            <div class="pill-group" role="group" aria-labelledby="expLabel" aria-required="true">
+              <button type="button" class="pill-btn" data-field="experience" data-value="אין" aria-pressed="false">אין</button>
+              <button type="button" class="pill-btn" data-field="experience" data-value="מעט" aria-pressed="false">מעט</button>
+              <button type="button" class="pill-btn" data-field="experience" data-value="יש" aria-pressed="false">יש</button>
+            </div>
+            <p class="field-error" id="fieldExperienceError" role="alert">נא לבחור ניסיון קודם</p>
+          </div>
+
+          <div class="field-wrap">
+            <span class="field-label" id="studioLabel">עניין באימוני סטודיו? <span style="color:#ef4444">*</span></span>
+            <div class="toggle-group" role="group" aria-labelledby="studioLabel" aria-required="true">
+              <button type="button" class="toggle-btn" data-field="studio" data-value="yes" aria-pressed="false">כן</button>
+              <button type="button" class="toggle-btn" data-field="studio" data-value="no" aria-pressed="false">לא</button>
+            </div>
+            <p style="font-size:12px;color:var(--text-mid);margin-top:5px;">קבוצות עד 7 משתתפים | רישום נפרד</p>
+            <p class="field-error" id="fieldStudioError" role="alert">נא לבחור</p>
+          </div>
+        </fieldset>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:1.5rem 0;">
+
+        <!-- STEP 3: Notes + Submit -->
+        <fieldset id="step3" style="border:none;padding:0;">
+          <legend style="font-size:17px;font-weight:700;color:var(--blue);margin-bottom:1.25rem;display:block;">
+            שלב 3 — הערות ושליחה
+          </legend>
+
+          <div class="field-wrap">
+            <label class="field-label" for="fieldNotes">הערות / מטרות נוספות <span style="font-weight:400;color:var(--text-mid)">(אופציונלי)</span></label>
+            <textarea
+              class="field-input field-textarea"
+              id="fieldNotes"
+              name="notes"
+              placeholder="ספר/י לנו עוד על המטרות שלך..."
+              rows="3"
+              aria-label="הערות ומטרות נוספות"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn" aria-label="שלח טופס ופתח שיחת וואטסאפ עם איריס">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            שלחו הודעה לאיריס בוואטסאפ 💬
+          </button>
+
+          <p class="trust-line">🔒 הפרטים שלך שמורים אצלנו בלבד ולא יועברו לאף גורם</p>
+
+        </fieldset>
+
+      </form>
+    </div><!-- /form-card -->
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 10 — CONTACT / FOOTER
+═══════════════════════════════════════════════════════════ -->
+<footer class="contact-section" id="contact" aria-label="פרטי קשר">
+  <div class="max-container" style="padding-top:0;">
+
+    <div class="fade-up">
+      <p class="contact-logo">רצי הוד השרון 🏃</p>
+      <p class="since-badge" style="color:rgba(255,255,255,0.65);font-size:20px;">Since 2008</p>
+
+      <div style="margin-top:1.5rem;">
+        <button class="btn-wa" onclick="openDirectWhatsApp()" aria-label="שלח הודעת וואטסאפ לאיריס">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          שלחו הודעה בוואטסאפ
+        </button>
+
+        <a href="mailto:hodhasharonrun@gmail.com" class="btn-outline-white" aria-label="שלח אימייל לרצי הוד השרון">
+          ✉️ hodhasharonrun@gmail.com
+        </a>
+      </div>
+
+      <p class="footer-copy">
+        © 2025 רצי הוד השרון | בחסות עיריית הוד השרון
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ── CONFIG ──────────────────────────────────────────────── */
+  const WA_PHONE = '972522654289';
+  const LS_KEY   = 'ratzey_form_v1';
+
+  /* ── SUPABASE CONFIG ─────────────────────────────────────── */
+  const SUPABASE_URL = 'https://hhpjwmafhhaljchrtznk.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_2LjPSIUif_38g0pscd2ydA_kir6Cqiw';
+  const TABLE_NAME   = 'HHR';
+  const { createClient } = window.supabase;
+  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  /* ── FORM STATE ──────────────────────────────────────────── */
+  const formState = {
+    name:       '',
+    gender:     '',
+    age:        '',
+    phone:      '',
+    email:      '',
+    goal:       '',
+    level:      '',
+    experience: '',
+    studio:     '',
+    notes:      ''
+  };
+
+  /* ── WHATSAPP ────────────────────────────────────────────── */
+  function buildWhatsAppMessage(data) {
+    const genderStr = data.gender === 'female' ? 'בת' : 'בן';
+    const studioStr = data.studio === 'yes'
+      ? ' אני מעוניין/ת גם באימוני הסטודיו הפונקציונלי 💪'
+      : '';
+    const notesStr = data.notes ? ` הערות נוספות: ${data.notes}` : '';
+
+    return encodeURIComponent(
+      `היי איריס 👋 שמי ${data.name}, אני ${genderStr} ${data.age}, מספרי ${data.phone}. ` +
+      `רמת הריצה שלי: ${data.level}. המטרה שלי: ${data.goal}. ` +
+      `ניסיון קודם: ${data.experience}. ` +
+      `אשמח לתאם אימון ניסיון חינם 🏃${studioStr}${notesStr}`
+    );
+  }
+
+  function openWhatsApp(message) {
+    window.open(`https://wa.me/${WA_PHONE}?text=${message}`, '_blank');
+  }
+
+  window.openDirectWhatsApp = function() {
+    const generic = encodeURIComponent('היי איריס 👋 אשמח לשמוע עוד על קבוצת הריצה ולתאם אימון ניסיון חינם 🏃');
+    openWhatsApp(generic);
+  };
+
+  /* ── STICKY BAR ──────────────────────────────────────────── */
+  const hero      = document.getElementById('hero');
+  const stickyBar = document.getElementById('stickyBar');
+
+  if (hero && stickyBar && 'IntersectionObserver' in window) {
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => stickyBar.classList.toggle('visible', !entry.isIntersecting),
+      { threshold: 0 }
+    );
+    heroObserver.observe(hero);
+  }
+
+  /* ── SCROLL ANIMATIONS ───────────────────────────────────── */
+  if ('IntersectionObserver' in window) {
+    const fadeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+  } else {
+    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+  }
+
+  /* ── SCROLL TO FORM ──────────────────────────────────────── */
+  window.scrollToForm = function() {
+    const formSection = document.getElementById('lead-form');
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  /* ── PILL / TOGGLE BUTTONS ───────────────────────────────── */
+  document.querySelectorAll('.pill-btn, .toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const field = btn.dataset.field;
+      const value = btn.dataset.value;
+
+      // Deselect siblings
+      document.querySelectorAll(`[data-field="${field}"]`).forEach(b => {
+        b.classList.remove('selected');
+        b.setAttribute('aria-pressed', 'false');
+      });
+
+      // Select this
+      btn.classList.add('selected');
+      btn.setAttribute('aria-pressed', 'true');
+
+      // Update state
+      formState[field] = value;
+      saveToStorage();
+      updateProgress();
+
+      // Clear error
+      const err = document.getElementById(`field${capitalize(field)}Error`);
+      if (err) err.classList.remove('show');
+    });
+  });
+
+  /* ── TEXT / SELECT INPUTS ────────────────────────────────── */
+  ['fieldName','fieldAge','fieldPhone','fieldEmail','fieldGoal','fieldNotes'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const fieldKey = id.replace('field', '').toLowerCase();
+
+    el.addEventListener('input', () => {
+      formState[fieldKey] = el.value;
+      saveToStorage();
+      updateProgress();
+    });
+
+    el.addEventListener('blur', () => {
+      validateField(id);
+    });
+  });
+
+  /* ── VALIDATION ──────────────────────────────────────────── */
+  const validators = {
+    fieldName:  v => v.trim().length >= 2,
+    fieldAge:   v => { const n = parseInt(v, 10); return !isNaN(n) && n >= 10 && n <= 90; },
+    fieldPhone: v => /^0[5][0-9]{8}$/.test(v.replace(/-/g, '')),
+    fieldEmail: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+    fieldGoal:  v => v !== ''
+  };
+
+  function validateField(id) {
+    const el  = document.getElementById(id);
+    const err = document.getElementById(id + 'Error');
+    if (!el || !validators[id]) return true;
+
+    const valid = validators[id](el.value);
+    el.classList.toggle('error', !valid);
+    if (err) err.classList.toggle('show', !valid);
+    return valid;
+  }
+
+  function validatePill(field) {
+    const err = document.getElementById(`field${capitalize(field)}Error`);
+    const valid = formState[field] !== '';
+    if (err) err.classList.toggle('show', !valid);
+    return valid;
+  }
+
+  function validateAll() {
+    let ok = true;
+    ok = validateField('fieldName')  && ok;
+    ok = validatePill('gender')      && ok;
+    ok = validateField('fieldAge')   && ok;
+    ok = validateField('fieldPhone') && ok;
+    ok = validateField('fieldEmail') && ok;
+    ok = validateField('fieldGoal')  && ok;
+    ok = validatePill('level')       && ok;
+    ok = validatePill('experience')  && ok;
+    ok = validatePill('studio')      && ok;
+    return ok;
+  }
+
+  /* ── PROGRESS BAR ────────────────────────────────────────── */
+  function updateProgress() {
+    const s1Complete = formState.name.trim().length >= 2 &&
+                       formState.gender !== '' &&
+                       (() => { const n = parseInt(formState.age, 10); return !isNaN(n) && n >= 10 && n <= 90; })() &&
+                       /^0[5][0-9]{8}$/.test(formState.phone.replace(/-/g, '')) &&
+                       /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email.trim());
+
+    const s2Complete = formState.goal !== '' &&
+                       formState.level !== '' &&
+                       formState.experience !== '' &&
+                       formState.studio !== '';
+
+    const d1 = document.getElementById('progDot1');
+    const d2 = document.getElementById('progDot2');
+    const d3 = document.getElementById('progDot3');
+    const l1 = document.getElementById('progLine1');
+    const l2 = document.getElementById('progLine2');
+
+    if (s1Complete && s2Complete) {
+      setDotState(d1, 'done');
+      setDotState(d2, 'done');
+      setDotState(d3, 'active');
+      l1.classList.add('done');
+      l2.classList.add('done');
+    } else if (s1Complete) {
+      setDotState(d1, 'done');
+      setDotState(d2, 'active');
+      setDotState(d3, 'none');
+      l1.classList.add('done');
+      l2.classList.remove('done');
+    } else {
+      setDotState(d1, 'active');
+      setDotState(d2, 'none');
+      setDotState(d3, 'none');
+      l1.classList.remove('done');
+      l2.classList.remove('done');
+    }
+  }
+
+  function setDotState(el, state) {
+    if (!el) return;
+    el.classList.remove('active', 'done');
+    if (state !== 'none') el.classList.add(state);
+  }
+
+  /* ── FORM SUBMIT ─────────────────────────────────────────── */
+  const form      = document.getElementById('trialForm');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Sync text inputs to state
+    formState.name  = document.getElementById('fieldName').value;
+    formState.age   = document.getElementById('fieldAge').value;
+    formState.phone = document.getElementById('fieldPhone').value;
+    formState.email = document.getElementById('fieldEmail').value;
+    formState.goal  = document.getElementById('fieldGoal').value;
+    formState.notes = document.getElementById('fieldNotes').value;
+
+    if (!validateAll()) {
+      // Scroll to first error
+      const firstErr = form.querySelector('.field-input.error, .field-error.show');
+      if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // Loading state
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<div class="spinner"></div> שולח...';
+
+    const saveAndRedirect = async () => {
+      try {
+        // Save to Supabase
+        const leadData = {
+          name:       formState.name.trim(),
+          phone:      formState.phone.trim(),
+          email:      formState.email.trim(),
+          created_at: new Date().toISOString()
+        };
+
+        const { data, error } = await supabase
+          .from(TABLE_NAME)
+          .insert([leadData]);
+
+        if (error) {
+          console.error('Supabase error:', error);
+          // Continue anyway to send WhatsApp
+        }
+
+      } catch (err) {
+        console.error('Error saving to Supabase:', err);
+        // Continue anyway
+      }
+
+      // Send WhatsApp message
+      const message = buildWhatsAppMessage({
+        name:       formState.name.trim(),
+        gender:     formState.gender,
+        age:        formState.age,
+        phone:      formState.phone.trim(),
+        level:      formState.level,
+        goal:       formState.goal,
+        experience: formState.experience,
+        studio:     formState.studio,
+        notes:      formState.notes.trim()
+      });
+
+      openWhatsApp(message);
+      clearStorage();
+
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        ✓ הודעה נשלחה! בוואטסאפ`;
+    };
+
+    setTimeout(saveAndRedirect, 800);
+  });
+
+  /* ── LOCAL STORAGE ───────────────────────────────────────── */
+  function saveToStorage() {
+    try {
+      localStorage.setItem(LS_KEY, JSON.stringify(formState));
+    } catch(e) {}
+  }
+
+  function loadFromStorage() {
+    try {
+      const saved = localStorage.getItem(LS_KEY);
+      if (!saved) return;
+      const data = JSON.parse(saved);
+      Object.assign(formState, data);
+
+      // Restore text inputs
+      if (data.name)  { const el = document.getElementById('fieldName');  if (el) el.value = data.name; }
+      if (data.age)   { const el = document.getElementById('fieldAge');   if (el) el.value = data.age; }
+      if (data.phone) { const el = document.getElementById('fieldPhone'); if (el) el.value = data.phone; }
+      if (data.email) { const el = document.getElementById('fieldEmail'); if (el) el.value = data.email; }
+      if (data.goal)  {
+        const el = document.getElementById('fieldGoal');
+        if (el) el.value = data.goal;
+      }
+      if (data.notes) { const el = document.getElementById('fieldNotes'); if (el) el.value = data.notes; }
+
+      // Restore pill/toggle selections
+      ['gender','level','experience','studio'].forEach(field => {
+        if (data[field]) {
+          const btn = document.querySelector(`[data-field="${field}"][data-value="${data[field]}"]`);
+          if (btn) {
+            btn.classList.add('selected');
+            btn.setAttribute('aria-pressed', 'true');
+          }
+        }
+      });
+
+      updateProgress();
+    } catch(e) {}
+  }
+
+  function clearStorage() {
+    try { localStorage.removeItem(LS_KEY); } catch(e) {}
+  }
+
+  /* ── UTILS ───────────────────────────────────────────────── */
+  function capitalize(s) {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+
+  /* ── INIT ────────────────────────────────────────────────── */
+  loadFromStorage();
+  updateProgress();
+
+})();
+</script>
+
+</body>
+</html>

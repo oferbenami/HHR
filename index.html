@@ -75,7 +75,6 @@
     }
 
     /* Hero critical styles */
-    .hero {
       background: linear-gradient(160deg, #0D1B6E 0%, #1A237E 45%, #1E3A8A 100%);
       min-height: 100svh;
       position: relative;
@@ -88,25 +87,39 @@
       overflow: hidden;
     }
 
+    .hero {
+      background: linear-gradient(160deg, #0D1B6E 0%, #1A237E 45%, #1E3A8A 100%);
+      min-height: unset;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 1.1rem 0.5rem 1.5rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23ffffff'/%3E%3C/svg%3E");
-      opacity: 0.06;
+      opacity: 0.04;
       pointer-events: none;
     }
 
     .hero-logo-strip {
       width: 100%;
       background: var(--off-white);
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       display: flex;
       justify-content: center;
       align-items: center;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(6px);
+      margin-bottom: 0.5rem !important;
     }
 
     .studio-logo-strip {
@@ -173,13 +186,11 @@
     .animate-pulse-wa   { animation: pulse 4s ease-in-out infinite; }
 
     /* Scroll fade-up */
-    .fade-up {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .fade-up.visible {
-      opacity: 1;
       transform: translateY(0);
     }
 
@@ -188,11 +199,13 @@
       position: fixed;
       bottom: 0;
       right: 0;
+    .trust-strip {
       left: 0;
       z-index: 999;
       background: #fff;
       padding: 10px 12px 14px;
       box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+    .trust-strip-inner {
       transform: translateY(100%);
       opacity: 0;
       transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease;
@@ -1035,28 +1048,34 @@
   <div class="max-container" style="width:100%;position:relative;z-index:1;">
 
     <!-- לוגו הקבוצה - פס לבן לאורך כל הדף -->
-    <div class="hero-logo-strip animate-fade-up-1" style="margin-bottom: 2rem;">
-      <img src="LOGO.JPG" alt="לוגו רצי הוד השרון" style="height: 80px; width: auto; max-width: 100%;">
+
+    <div class="hero-logo-strip animate-fade-up-1" style="margin-bottom: 0.7rem;">
+      <img src="LOGO.JPG" alt="לוגו רצי הוד השרון" style="height: 54px; width: auto; max-width: 100%;">
     </div>
 
-    <div class="hero-badge animate-fade-up-1">
+
+    <div class="hero-badge animate-fade-up-1" style="font-size:13px;margin-bottom:0.5rem;">
       🔥 בתאום מראש על בסיס מקום פנוי לאימון ניסיון חינם
     </div>
 
-    <h1 class="animate-fade-up-2">
+
+    <h1 class="animate-fade-up-2" style="font-size: 1.45rem; margin-bottom: 0.2rem;">
       רצי הוד השרון
     </h1>
 
-    <div class="animate-fade-up-3">
-      <span class="since-badge animate-float">Since 2008 ✦</span>
+
+    <div class="animate-fade-up-3" style="margin-bottom:0.2rem;">
+      <span class="since-badge animate-float" style="font-size: 1rem;">Since 2008 ✦</span>
     </div>
 
-    <h2 class="animate-fade-up-4">
+
+    <h2 class="animate-fade-up-4" style="font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem;">
       לממש את הפוטנציאל שלך<br>בלי לוותר על מה שחשוב באמת
     </h2>
 
-    <p class="hero-sub animate-fade-up-5">
-      איריס בן עמי, מאמנת אתלטיקה עם התמחות בריצה, בוגרת מכון וינגייט עם 18+ שנות ניסיון.
+
+    <p class="hero-sub animate-fade-up-5" style="font-size: 13px; margin-bottom: 0.5rem;">
+      איריס בן עמי, מאמנת אתלטיקה עם התמחות בריצה, בוגרת מכון וינגייט עם 18+ שנות ניסיון.<br>
       קבוצת ריצה מקצועית — לכל הרמות.
     </p>
 
@@ -1065,34 +1084,35 @@
       <div class="trust-strip-inner" style="display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; text-align: center;">
         
         <!-- צד ימין: מאמנת אתלטיקה -->
-        <div style="text-align: center; flex: 1; min-width: 150px;">
-          <div style="font-size: 14px; font-weight: 700; margin-bottom: 0.4rem;">איריס בן עמי</div>
-          <div style="font-size: 11px; opacity: 0.85; line-height: 1.4;">מאמנת אתלטיקה מוסמכת</div>
-          <img src="wingatelogo.jpg" alt="לוגו וינגייט" style="height: 30px; width: auto; display: block; margin: 0.75rem auto 0 auto;">
+        <div style="text-align: center; flex: 1; min-width: 120px;">
+          <div style="font-size: 13px; font-weight: 700; margin-bottom: 0.15rem;">איריס בן עמי</div>
+          <div style="font-size: 10px; opacity: 0.85; line-height: 1.2;">מאמנת אתלטיקה מוסמכת</div>
+          <img src="wingatelogo.jpg" alt="לוגו וינגייט" style="height: 22px; width: auto; display: block; margin: 0.4rem auto 0 auto;">
         </div>
         
         <!-- אמצע: קו דק אנכי -->
-        <div style="display: flex; align-items: center; justify-content: center; height: 40px;">
-          <div style="width: 1.5px; height: 32px; background: #d1d5db; opacity: 0.7; margin: 0 1.2rem;"></div>
+        <div style="display: flex; align-items: center; justify-content: center; height: 28px;">
+          <div style="width: 1px; height: 20px; background: #d1d5db; opacity: 0.7; margin: 0 0.7rem;"></div>
         </div>
         
         <!-- צד שמאל: רשות הספורט -->
-        <div style="text-align: center; flex: 1; min-width: 150px;">
-          <img src="rashuthsporthh.jpg" alt="לוגו רשות הספורט" style="height: 35px; width: auto; margin: 0 auto 0.5rem auto; display: block;">
-          <div style="font-size: 11px; opacity: 0.85;">בחסות<br>רשות הספורט</div>
+        <div style="text-align: center; flex: 1; min-width: 120px;">
+          <img src="rashuthsporthh.jpg" alt="לוגו רשות הספורט" style="height: 22px; width: auto; margin: 0 auto 0.2rem auto; display: block;">
+          <div style="font-size: 10px; opacity: 0.85;">בחסות<br>רשות הספורט</div>
         </div>
         
       </div>
     </div>
 
-    <div class="animate-fade-up-7">
-      <button class="btn-orange" onclick="scrollToForm()" aria-label="לחץ לאימון ניסיון חינם">
+
+    <div class="animate-fade-up-7" style="margin-top:0.3rem;">
+      <button class="btn-orange" style="font-size: 14px; padding: 8px 18px; border-radius: 12px;" onclick="scrollToForm()" aria-label="לחץ לאימון ניסיון חינם">
         אני רוצה אימון ניסיון חינם ↓
       </button>
-      <p class="hero-microcopy">✓ ללא התחייבות &nbsp; ✓ חינם לגמרי</p>
+      <p class="hero-microcopy" style="font-size: 11px; margin-top: 0.3rem; margin-bottom: 0.2rem;">✓ ללא התחייבות &nbsp; ✓ חינם לגמרי</p>
     </div>
 
-    <div class="bounce-arrow animate-bounce-arrow animate-fade-up-7" aria-hidden="true">↓</div>
+    <!-- No bounce arrow for more compactness -->
 
   </div>
 </section>
@@ -1327,7 +1347,7 @@
     </div>
 
     <div class="studio-logo-strip fade-up" aria-label="לוגו סטודיו אימונים לרוחב כל הדף">
-      <img src="studiologo2.png" alt="לוגו סטודיו אימונים" />
+      <img src="STUDIOLOGO3.png" alt="לוגו סטודיו אימונים" />
     </div>
 
     <div class="studio-header fade-up" style="margin: 2rem 0; padding: 2rem 1.5rem; background: linear-gradient(135deg, #FF5722 0%, #F4511E 100%); border-radius: 16px; color: #fff; text-align: center; box-shadow: 0 8px 30px rgba(255, 87, 34, 0.3);">

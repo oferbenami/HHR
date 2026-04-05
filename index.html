@@ -998,6 +998,11 @@
 
   <div class="max-container" style="width:100%;position:relative;z-index:1;">
 
+    <!-- לוגו הקבוצה -->
+    <div class="hero-logo animate-fade-up-1" style="margin-bottom: 1rem;">
+      <img src="LOGO.JPG" alt="לוגו רצי הוד השרון" style="height: 80px; width: auto; filter: brightness(0) invert(1);">
+    </div>
+
     <div class="hero-badge animate-fade-up-1">
       🔥 מקומות מוגבלים לאימון ניסיון חינם
     </div>
@@ -1635,8 +1640,8 @@
 
   /* ── SUPABASE CONFIG ─────────────────────────────────────── */
   const SUPABASE_URL = 'https://hhpjwmafhhaljchrtznk.supabase.co';
-  const SUPABASE_KEY = 'sb_publishable_2LjPSIUif_38g0pscd2ydA_kir6Cqiw';
-  const TABLE_NAME   = 'HHR';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhocGp3bWFmaGhhbGpjaHJ0em5rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3MzYwMDAsImV4cCI6MjA1MDMxMjAwMH0.example_key_replace_with_real_one';
+  const TABLE_NAME   = 'leads';
   const { createClient } = window.supabase;
   const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -1890,7 +1895,10 @@
 
         if (error) {
           console.error('Supabase error:', error);
+          alert('שגיאה בשמירת הנתונים. אנא בדוק את הגדרות Supabase או צור קשר עם המפתח.');
           // Continue anyway to send WhatsApp
+        } else {
+          console.log('Data saved successfully:', data);
         }
 
       } catch (err) {

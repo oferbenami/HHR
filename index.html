@@ -345,16 +345,22 @@
       background: var(--off-white);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 14px 0;
+      padding: 4px 0 2px 0;
+      max-width: 480px;
+      margin: 0 auto;
+      overflow-x: hidden;
     }
     .trust-strip-inner {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      gap: 0.5rem;
       flex-wrap: wrap;
-      padding: 0 1rem;
+      padding: 0 0.5rem;
       text-align: center;
+      white-space: normal;
+      word-break: break-word;
+      width: 100%;
     }
     .trust-item {
       display: flex;
@@ -371,6 +377,7 @@
       background: var(--border);
       flex-shrink: 0;
     }
+      /* (trust-strip styles removed) */
 
     /* ─── SECTION LAYOUT ────────────────────────────────────── */
     section {
@@ -1060,29 +1067,16 @@
       קבוצת ריצה מקצועית — לכל הרמות.
     </p>
 
-    <!-- TRUST STRIP - COMPACT TWO-COLUMN -->
-    <div class="trust-strip animate-fade-up-6" role="complementary" aria-label="אמינות ואישורים" style="margin: 1.5rem 0; padding: 1rem 1.5rem;">
-      <div class="trust-strip-inner" style="display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; text-align: center;">
-        
-        <!-- צד ימין: מאמנת אתלטיקה -->
-        <div style="text-align: center; flex: 1; min-width: 150px;">
-          <div style="font-size: 14px; font-weight: 700; margin-bottom: 0.4rem;">איריס בן עמי</div>
-          <div style="font-size: 11px; opacity: 0.85; line-height: 1.4;">מאמנת אתלטיקה מוסמכת</div>
-          <img src="wingatelogo.jpg" alt="לוגו וינגייט" style="height: 30px; width: auto; display: block; margin: 0.75rem auto 0 auto;">
-        </div>
-        
-        <!-- אמצע: קו דק אנכי -->
-        <div style="display: flex; align-items: center; justify-content: center; height: 40px;">
-          <div style="width: 1.5px; height: 32px; background: #d1d5db; opacity: 0.7; margin: 0 1.2rem;"></div>
-        </div>
-        
-        <!-- צד שמאל: רשות הספורט -->
-        <div style="text-align: center; flex: 1; min-width: 150px;">
-          <img src="rashuthsporthh.jpg" alt="לוגו רשות הספורט" style="height: 35px; width: auto; margin: 0 auto 0.5rem auto; display: block;">
-          <div style="font-size: 11px; opacity: 0.85;">בחסות<br>רשות הספורט</div>
-        </div>
-        
-      </div>
+
+    <!-- SOCIAL STRIP -->
+    <div class="social-strip animate-fade-up-6" style="margin: 1.1rem 0 0.2rem 0; display: flex; justify-content: center; align-items: center; gap: 0.7rem; font-size: 15px;">
+      <span style="font-weight: 600; color: #222;">בקרו אותנו:</span>
+      <a href="https://www.instagram.com/hhr_runners" target="_blank" rel="noopener" aria-label="אינסטגרם" style="display: flex; align-items: center; color: #E1306C; text-decoration: none; font-size: 20px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="margin-left: 3px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608C4.515 2.567 5.782 2.295 7.148 2.233 8.414 2.175 8.794 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.363 3.678 1.344c-.98.98-1.213 2.092-1.272 3.373C2.013 5.668 2 6.077 2 12c0 5.923.013 6.332.072 7.613.059 1.281.292 2.393 1.272 3.373.98.98 2.092 1.213 3.373 1.272C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.281-.059 2.393-.292 3.373-1.272.98-.98 1.213-2.092 1.272-3.373.059-1.281.072-1.69.072-7.613 0-5.923-.013-6.332-.072-7.613-.059-1.281-.292-2.393-1.272-3.373-.98-.98-2.092-1.213-3.373-1.272C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/hhr.runners" target="_blank" rel="noopener" aria-label="פייסבוק" style="display: flex; align-items: center; color: #1877F3; text-decoration: none; font-size: 20px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.326 24H12.82v-9.294H9.692v-3.622h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+      </a>
     </div>
 
     <div class="animate-fade-up-7">
@@ -1125,16 +1119,10 @@
     </blockquote>
 
     <p style="font-size:16px;color:var(--text-mid);line-height:1.7;text-align:right;">
-      עם ניסיון של 30 שנה ואהבה אמיתית לריצה, איריס יוצרת אווירה שמשלבת מקצועיות עם חמימות.
-      התוכנית שבועית, מדויקת ומותאמת אישית — לכל רמה ולכל לוח זמנים.
-      ריצה לא צריכה להתחרות בחיים שלך — היא אמורה לשדרג אותם.
+	עם ניסיון של 30 שנה ואהבה אמיתית לריצה, איריס יוצרת אווירה שמשלבת מקצועיות עם חמימות.
+	התוכנית שבועית, מדויקת ומותאמת אישית — לכל רמה ולכל לוח זמנים.
+	ריצה לא צריכה להתחרות בחיים שלך — היא אמורה לשדרג אותם.
     </p>
-
-    <div class="logos-row" aria-label="לוגו רשות הספורט בלבד">
-      <div class="logo-placeholder" role="img" aria-label="לוגו רשות הספורט">
-        <img src="rashuthsporthh.jpg" alt="לוגו רשות הספורט" style="max-width: 220px; width: 100%; height: auto; object-fit: contain;">
-      </div>
-    </div>
 
   </div>
 </section>

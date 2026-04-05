@@ -1690,15 +1690,20 @@
   function buildWhatsAppMessage(data) {
     const genderStr = data.gender === 'female' ? 'בת' : 'בן';
     const studioStr = data.studio === 'yes'
-      ? ' אני מעוניין/ת גם באימוני הסטודיו הפונקציונלי 💪'
+      ? '%0A💪 אני מעוניין/ת גם באימוני הסטודיו הפונקציונלי'
       : '';
-    const notesStr = data.notes ? ` הערות נוספות: ${data.notes}` : '';
+    const notesStr = data.notes ? `%0A📝 הערות נוספות: ${data.notes}` : '';
 
     return encodeURIComponent(
-      `היי איריס 👋 שמי ${data.name}, אני ${genderStr} ${data.age}, מספרי ${data.phone}. ` +
-      `רמת הריצה שלי: ${data.level}. המטרה שלי: ${data.goal}. ` +
-      `ניסיון קודם: ${data.experience}. ` +
-      `אשמח לתאם אימון ניסיון חינם 🏃${studioStr}${notesStr}`
+      `היי איריס 👋%0A` +
+      `שמי: ${data.name}%0A` +
+      `אני ${genderStr} ${data.age}%0A` +
+      `מספר טלפון: ${data.phone}%0A` +
+      `רמת הריצה שלי: ${data.level}%0A` +
+      `המטרה שלי: ${data.goal}%0A` +
+      `ניסיון קודם: ${data.experience}%0A` +
+      `🏃 אשמח לתאם אימון ניסיון חינם` +
+      studioStr + notesStr
     );
   }
 

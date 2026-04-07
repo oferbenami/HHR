@@ -703,9 +703,39 @@
       background: #fff;
       border-radius: 20px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      padding: 28px 20px;
+      padding: 20px 16px;
       max-width: 520px;
       margin: 0 auto;
+    }
+    /* Step wizard */
+    .form-step { display: none; }
+    .form-step.active { display: block; }
+    .btn-next-step {
+      width: 100%;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 13px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: filter 0.15s;
+    }
+    .btn-next-step:hover { filter: brightness(1.1); }
+    .btn-prev-step {
+      background: none;
+      border: none;
+      color: var(--text-mid);
+      font-family: 'Heebo', sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 8px 0 2px;
+      display: block;
+      text-align: center;
+      width: 100%;
     }
 
     /* Progress bar */
@@ -714,7 +744,7 @@
       align-items: center;
       justify-content: center;
       gap: 0;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1rem;
     }
     .prog-step {
       display: flex;
@@ -765,20 +795,20 @@
 
     /* Form fields */
     .field-wrap {
-      margin-bottom: 16px;
+      margin-bottom: 10px;
     }
     .field-label {
       display: block;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--text-dark);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .field-input {
       width: 100%;
       border: 1.5px solid var(--border);
       border-radius: 10px;
-      padding: 12px 14px;
+      padding: 10px 12px;
       font-family: 'Heebo', sans-serif;
       font-size: 16px;
       color: var(--text-dark);
@@ -862,7 +892,7 @@
       width: 100%;
       border: 1.5px solid var(--border);
       border-radius: 10px;
-      padding: 12px 14px;
+      padding: 10px 12px;
       font-family: 'Heebo', sans-serif;
       font-size: 16px;
       color: var(--text-dark);
@@ -1393,35 +1423,24 @@
 <!-- ══════════════════════════════════════════════════════════
      SECTION 9 — LEAD FORM
 ═══════════════════════════════════════════════════════════ -->
-<section class="section-off" id="lead-form" aria-label="טופס אימון ניסיון">
+<section class="section-off" id="lead-form" aria-label="טופס אימון ניסיון" style="padding: 1.5rem 1.25rem;">
   <div class="max-container">
 
-    <div class="fade-up text-center" style="margin-bottom:1.5rem;">
-      <h2 class="section-title">קבל/י אימון ניסיון חינם</h2>
-      <p class="section-sub">מלא/י את הפרטים ואיריס תחזור אליך תוך שעות</p>
-    </div>
-
-    <!-- Direct WhatsApp option -->
-    <div class="direct-wa-wrap fade-up">
-      <p class="direct-wa-text">מעדיף/ה לדבר ישירות?</p>
-      <button class="btn-wa-sm" onclick="openDirectWhatsApp()" aria-label="פתח שיחה ישירה עם איריס בוואטסאפ">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        כתוב/י לאיריס ישירות
-      </button>
+    <div class="fade-up text-center" style="margin-bottom:0.75rem;">
+      <h2 class="section-title" style="margin-bottom:0.2rem;">קבל/י אימון ניסיון חינם</h2>
+      <p class="section-sub" style="font-size:14px;margin-bottom:0;">מלא/י את הפרטים ואיריס תחזור אליך תוך שעות</p>
     </div>
 
     <!-- Progress bar -->
     <div class="progress-bar-wrap fade-up" aria-label="שלבי מילוי הטופס">
       <div class="prog-step">
         <div class="prog-dot active" id="progDot1">1</div>
-        <div class="prog-label">פרטים אישיים</div>
+        <div class="prog-label">פרטים</div>
       </div>
       <div class="prog-line" id="progLine1"></div>
       <div class="prog-step">
         <div class="prog-dot" id="progDot2">2</div>
-        <div class="prog-label">רמה ומטרה</div>
+        <div class="prog-label">רמה</div>
       </div>
       <div class="prog-line" id="progLine2"></div>
       <div class="prog-step">
@@ -1435,28 +1454,24 @@
       <form id="trialForm" novalidate>
 
         <!-- STEP 1: Personal -->
-        <fieldset id="step1" style="border:none;padding:0;">
-          <legend style="font-size:17px;font-weight:700;color:var(--blue);margin-bottom:1.25rem;display:block;">
-            שלב 1 — פרטים אישיים
-          </legend>
+        <fieldset id="step1" class="form-step active" style="border:none;padding:0;">
+          <legend style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:0.75rem;display:block;">פרטים אישיים</legend>
 
-          <div class="field-wrap">
-            <label class="field-label" for="fieldName">שם מלא <span style="color:#ef4444">*</span></label>
-            <input
-              class="field-input"
-              type="text"
-              id="fieldName"
-              name="name"
-              autocomplete="name"
-              placeholder="שם מלא"
-              required
-              aria-required="true"
-              aria-describedby="fieldNameError"
-            >
-            <p class="field-error" id="fieldNameError" role="alert">נא להזין שם מלא (לפחות 2 תווים)</p>
+          <!-- שם + מין בשורה אחת -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div class="field-wrap" style="margin-bottom:0;">
+              <label class="field-label" for="fieldName">שם מלא <span style="color:#ef4444">*</span></label>
+              <input class="field-input" type="text" id="fieldName" name="name" autocomplete="name" placeholder="שם מלא" required aria-required="true" aria-describedby="fieldNameError">
+              <p class="field-error" id="fieldNameError" role="alert">שם חסר</p>
+            </div>
+            <div class="field-wrap" style="margin-bottom:0;">
+              <label class="field-label" for="fieldAge">גיל <span style="color:#ef4444">*</span></label>
+              <input class="field-input" type="number" id="fieldAge" name="age" min="10" max="90" placeholder="גיל" required aria-required="true" aria-describedby="fieldAgeError">
+              <p class="field-error" id="fieldAgeError" role="alert">גיל לא תקין</p>
+            </div>
           </div>
 
-          <div class="field-wrap">
+          <div class="field-wrap" style="margin-top:8px;">
             <span class="field-label" id="genderLabel">מין <span style="color:#ef4444">*</span></span>
             <div class="pill-group" role="group" aria-labelledby="genderLabel" aria-required="true">
               <button type="button" class="pill-btn" data-field="gender" data-value="male" aria-pressed="false">זכר</button>
@@ -1466,76 +1481,27 @@
           </div>
 
           <div class="field-wrap">
-            <label class="field-label" for="fieldAge">גיל <span style="color:#ef4444">*</span></label>
-            <input
-              class="field-input"
-              type="number"
-              id="fieldAge"
-              name="age"
-              min="10"
-              max="90"
-              placeholder="גיל"
-              required
-              aria-required="true"
-              aria-describedby="fieldAgeError"
-              style="max-width:120px;"
-            >
-            <p class="field-error" id="fieldAgeError" role="alert">נא להזין גיל בין 10 ל-90</p>
-          </div>
-
-          <div class="field-wrap">
             <label class="field-label" for="fieldPhone">טלפון <span style="color:#ef4444">*</span></label>
-            <input
-              class="field-input"
-              type="tel"
-              id="fieldPhone"
-              name="phone"
-              autocomplete="tel"
-              placeholder="05X-XXXXXXX"
-              required
-              aria-required="true"
-              aria-describedby="fieldPhoneError fieldPhoneMicro"
-              inputmode="tel"
-            >
-            <p class="field-microcopy" id="fieldPhoneMicro">לתיאום האימון בלבד</p>
-            <p class="field-error" id="fieldPhoneError" role="alert">נא להזין מספר טלפון ישראלי תקין (05X-XXXXXXX)</p>
+            <input class="field-input" type="tel" id="fieldPhone" name="phone" autocomplete="tel" placeholder="05X-XXXXXXX" required aria-required="true" aria-describedby="fieldPhoneError" inputmode="tel">
+            <p class="field-error" id="fieldPhoneError" role="alert">מספר לא תקין</p>
           </div>
 
           <div class="field-wrap">
             <label class="field-label" for="fieldEmail">דוא״ל <span style="color:#ef4444">*</span></label>
-            <input
-              class="field-input"
-              type="email"
-              id="fieldEmail"
-              name="email"
-              autocomplete="email"
-              placeholder="example@email.com"
-              required
-              aria-required="true"
-              aria-describedby="fieldEmailError"
-            >
-            <p class="field-error" id="fieldEmailError" role="alert">נא להזין דוא״ל תקין</p>
+            <input class="field-input" type="email" id="fieldEmail" name="email" autocomplete="email" placeholder="example@email.com" required aria-required="true" aria-describedby="fieldEmailError">
+            <p class="field-error" id="fieldEmailError" role="alert">דוא״ל לא תקין</p>
           </div>
+
+          <button type="button" class="btn-next-step" id="nextStep1">המשך ←</button>
         </fieldset>
 
-        <hr style="border:none;border-top:1px solid var(--border);margin:1.5rem 0;">
-
         <!-- STEP 2: Level & Goal -->
-        <fieldset id="step2" style="border:none;padding:0;">
-          <legend style="font-size:17px;font-weight:700;color:var(--blue);margin-bottom:1.25rem;display:block;">
-            שלב 2 — רמה ומטרה
-          </legend>
+        <fieldset id="step2" class="form-step" style="border:none;padding:0;">
+          <legend style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:0.75rem;display:block;">רמה ומטרה</legend>
 
           <div class="field-wrap">
             <label class="field-label" for="fieldGoal">מטרת האימון <span style="color:#ef4444">*</span></label>
-            <select
-              class="field-select"
-              id="fieldGoal"
-              name="goal"
-              required
-              aria-required="true"
-              aria-describedby="fieldGoalError"
-            >
+            <select class="field-select" id="fieldGoal" name="goal" required aria-required="true" aria-describedby="fieldGoalError">
               <option value="" disabled selected>בחר/י מטרה...</option>
               <option value="מרתון">מרתון</option>
               <option value="אורח חיים בריא">אורח חיים בריא</option>
@@ -1551,7 +1517,7 @@
               <button type="button" class="pill-btn" data-field="level" data-value='5 ק"מ' aria-pressed="false">5 ק"מ</button>
               <button type="button" class="pill-btn" data-field="level" data-value='10 ק"מ+' aria-pressed="false">10 ק"מ+</button>
             </div>
-            <p class="field-error" id="fieldLevelError" role="alert">נא לבחור רמת ריצה</p>
+            <p class="field-error" id="fieldLevelError" role="alert">נא לבחור רמה</p>
           </div>
 
           <div class="field-wrap">
@@ -1561,38 +1527,28 @@
               <button type="button" class="pill-btn" data-field="experience" data-value="מעט" aria-pressed="false">מעט</button>
               <button type="button" class="pill-btn" data-field="experience" data-value="יש" aria-pressed="false">יש</button>
             </div>
-            <p class="field-error" id="fieldExperienceError" role="alert">נא לבחור ניסיון קודם</p>
+            <p class="field-error" id="fieldExperienceError" role="alert">נא לבחור</p>
           </div>
 
           <div class="field-wrap">
-            <span class="field-label" id="studioLabel">עניין באימוני סטודיו? <span style="color:#ef4444">*</span></span>
-            <div class="toggle-group" role="group" aria-labelledby="studioLabel" aria-required="true">
+            <span class="field-label" id="studioLabel">עניין באימוני סטודיו?</span>
+            <div class="toggle-group" role="group" aria-labelledby="studioLabel">
               <button type="button" class="toggle-btn" data-field="studio" data-value="yes" aria-pressed="false">כן</button>
               <button type="button" class="toggle-btn" data-field="studio" data-value="no" aria-pressed="false">לא</button>
             </div>
-            <p style="font-size:12px;color:var(--text-mid);margin-top:5px;">קבוצות עד 7 משתתפים | רישום נפרד</p>
-            <p class="field-error" id="fieldStudioError" role="alert">נא לבחור</p>
           </div>
+
+          <button type="button" class="btn-next-step" id="nextStep2">המשך ←</button>
+          <button type="button" class="btn-prev-step" id="prevStep2">→ חזור</button>
         </fieldset>
 
-        <hr style="border:none;border-top:1px solid var(--border);margin:1.5rem 0;">
-
         <!-- STEP 3: Notes + Submit -->
-        <fieldset id="step3" style="border:none;padding:0;">
-          <legend style="font-size:17px;font-weight:700;color:var(--blue);margin-bottom:1.25rem;display:block;">
-            שלב 3 — הערות ושליחה
-          </legend>
+        <fieldset id="step3" class="form-step" style="border:none;padding:0;">
+          <legend style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:0.75rem;display:block;">הערות ושליחה</legend>
 
           <div class="field-wrap">
-            <label class="field-label" for="fieldNotes">הערות / מטרות נוספות <span style="font-weight:400;color:var(--text-mid)">(אופציונלי)</span></label>
-            <textarea
-              class="field-input field-textarea"
-              id="fieldNotes"
-              name="notes"
-              placeholder="ספר/י לנו עוד על המטרות שלך..."
-              rows="3"
-              aria-label="הערות ומטרות נוספות"
-            ></textarea>
+            <label class="field-label" for="fieldNotes">הערות <span style="font-weight:400;color:var(--text-mid)">(אופציונלי)</span></label>
+            <textarea class="field-input field-textarea" id="fieldNotes" name="notes" placeholder="ספר/י לנו עוד על המטרות שלך..." rows="3" aria-label="הערות ומטרות נוספות"></textarea>
           </div>
 
           <button type="submit" class="btn-submit" id="submitBtn" aria-label="שלח טופס ופתח שיחת וואטסאפ עם איריס">
@@ -1602,8 +1558,8 @@
             שלחו הודעה לאיריס בוואטסאפ 💬
           </button>
 
-          <p class="trust-line">🔒 הפרטים שלך שמורים אצלנו בלבד ולא יועברו לאף גורם</p>
-
+          <p class="trust-line">🔒 הפרטים שלך שמורים אצלנו בלבד</p>
+          <button type="button" class="btn-prev-step" id="prevStep3">→ חזור</button>
         </fieldset>
 
       </form>
@@ -1624,9 +1580,9 @@
       <!-- כותרת -->
       <h2 style="font-size:28px; font-weight:900; color:#fff; margin-bottom:1.2rem; letter-spacing:1px;">יצירת קשר</h2>
 
-      <!-- לוגו -->
-      <div style="margin-bottom:0.6rem;">
-        <img src="LOGO.JPG" alt="לוגו רצי הוד השרון" style="height:80px; width:auto; max-width:100%; border-radius:12px;">
+      <!-- לוגו באנר רוחב מלא -->
+      <div style="margin: 0 -1.25rem 1rem; background: rgba(255,255,255,0.08); border-top: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); padding: 1rem 0;">
+        <img src="LOGO.JPG" alt="לוגו רצי הוד השרון" style="height:90px; width:auto; max-width:80%; display:block; margin:0 auto;">
       </div>
       <p class="contact-logo" style="margin-bottom:2px;">רצי הוד השרון</p>
       <p class="since-badge" style="color:rgba(255,255,255,0.65);font-size:18px;">Since 2008</p>
@@ -1748,6 +1704,38 @@
     const generic = encodeURIComponent('היי איריס 👋 אשמח לשמוע עוד על קבוצת הריצה ולתאם אימון ניסיון חינם 🏃');
     openWhatsApp(generic);
   };
+
+  /* ── STEP WIZARD ─────────────────────────────────────────── */
+  let currentStep = 1;
+
+  function showStep(n) {
+    document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+    const stepEl = document.getElementById('step' + n);
+    if (stepEl) stepEl.classList.add('active');
+    currentStep = n;
+    updateProgress();
+    const formCard = document.querySelector('.form-card');
+    if (formCard) formCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  document.getElementById('nextStep1')?.addEventListener('click', () => {
+    const ok = validateField('fieldName') &
+               validatePill('gender') &
+               validateField('fieldAge') &
+               validateField('fieldPhone') &
+               validateField('fieldEmail');
+    if (ok) showStep(2);
+  });
+
+  document.getElementById('nextStep2')?.addEventListener('click', () => {
+    const ok = validateField('fieldGoal') &
+               validatePill('level') &
+               validatePill('experience');
+    if (ok) showStep(3);
+  });
+
+  document.getElementById('prevStep2')?.addEventListener('click', () => showStep(1));
+  document.getElementById('prevStep3')?.addEventListener('click', () => showStep(2));
 
   /* ── STICKY BAR ──────────────────────────────────────────── */
   const hero      = document.getElementById('hero');
@@ -1905,7 +1893,6 @@
     ok = validateField('fieldGoal')  && ok;
     ok = validatePill('level')       && ok;
     ok = validatePill('experience')  && ok;
-    ok = validatePill('studio')      && ok;
     return ok;
   }
 
